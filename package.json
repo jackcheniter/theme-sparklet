@@ -65,7 +65,7 @@
       "showLevel": {
         "type": "boolean",
         "title": "Show level indicator in TOC",
-        "default": true
+        "default": false
       }
     }
   }
