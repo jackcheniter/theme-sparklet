@@ -1,19 +1,16 @@
 {
     "root": ".",
     "title": "SLMD编辑器",
-    "author" : "小火花软件",
+    "author" : "小火花软件, 深圳小火花软件科技有限公司",
     "keywords": "小火花,小火花软件,Sparklet-soft, Sparklet,深圳小火花软件科技有限公司",
     "description" : "SLMD编辑器",
-    "language" : "en",
+    "language" : "zh-hans",
     "plugins": [
         "-sharing",
-        "fontsettings",
-        "search-plus",
-        "-lunr", "-search",
-        "-highlight",
-        "prism",
+        "-lunr", "-search","search-plus",
+        "-highlight", "prism",
         "splitter",
-        "toggle-chapters",
+        "expandable-chapters",
         "theme-sparklet@git+https://github.com/jackcheniter/theme-sparklet.git"
     ],
     "pluginsConfig": {
@@ -21,6 +18,11 @@
             "css": [
                 "prismjs/themes/prism-solarizedlight.css"
             ]
+        },
+        "fontsettings": {
+            "theme": "white",
+            "family": "serif",
+            "size": 2
         }
     },
     "pdf":{
