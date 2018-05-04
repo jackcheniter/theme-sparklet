@@ -1,29 +1,20 @@
 {% extends "./layout.html" %}
 
-{% block title %}{{ page.title }} · {{ super() }}{% endblock %}
-
-{% block description %}{{ page.description }}{% endblock %}
+{% block title %}{{ page.title }} - {{ super() }}{% endblock %}
+{% block author %}{% if page.author %}{{ page.author }}{% else %}{{ config.author }}{% endif %}{% endblock %}
+{% block keywords %}{{ page.keywords }},{{ config.keywords }}{% endblock %}
+{% block description %}{% if page.description %}{{ page.description }}{% else %}{{ config.description }}{% endif %}{% endblock %}
 
 {% block head %}
     {{ super() }}
-    {% if page.next and page.next.path %}
-    <link rel="next" href="{{ page.next.path|resolveFile }}" />
-    {% endif %}
-    {% if page.previous and page.previous.path %}
-    <link rel="prev" href="{{ page.previous.path|resolveFile }}" />
-    {% endif %}
+    {% if page.next and page.next.path %}<link rel="next" href="{{ page.next.path|resolveFile }}" />{% endif %}
+    {% if page.previous and page.previous.path %}<link rel="prev" href="{{ page.previous.path|resolveFile }}" />{% endif %}
 {% endblock %}
 
 {% block javascript %}
     <script src="{{ "gitbook.js"|resolveAsset }}"></script>
-    <!--<script src="{{ "theme.js"|resolveAsset }}"></script>-->
     {% for resource in plugins.resources.js %}
-        {% if resource.url %}
-        <script src="{{ resource.url }}"></script>
-        {% else %}
-        <script src="{{ resource.path|resolveAsset }}"></script>
-        {% endif %}
-    {% endfor %}
+        {% if resource.url %}<script src="{{ resource.url }}"></script>{% else %}<script src="{{ resource.path|resolveAsset }}"></script>{% endif %}{% endfor %}
 {% endblock %}
 
 {% block body %}

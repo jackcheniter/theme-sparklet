@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="keywords" content="{% block keywords%}{% endblock %}">
         <meta name="description" content="{% block description %}{% endblock %}">
-        {% if config.author %}<meta name="author" content="{{ config.author }}">{% endif %}
+        <meta name="author" content="{% block author %}{% endblock %}">
         {% if config.isbn %}<meta name="identifier" content="{{ config.isbn }}" scheme="ISBN">{% endif %}
     {% block head %}{% endblock %}
     {% block style %}{% for resource in plugins.resources.css %}
@@ -16,7 +16,7 @@
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block sparklet-footer%}{% endblock %}
+        {% block sparkletFooter %}{% endblock %}
         {% block javascript %}{% endblock %}
     </body>
 </html>
